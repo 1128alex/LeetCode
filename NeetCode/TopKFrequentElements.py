@@ -18,6 +18,9 @@
 #   1 <= k <= number of distinct elements in nums.
 
 
+from typing import List
+
+
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         # cnt each number and put it in array
