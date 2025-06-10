@@ -11,7 +11,6 @@
 // Output: [1,2,3]
 
 //   Definition for singly-linked list.
-
 struct ListNode
 {
     int val;
