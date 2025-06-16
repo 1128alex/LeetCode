@@ -87,4 +87,3 @@ public:
         return result;
     }
 };
-#
