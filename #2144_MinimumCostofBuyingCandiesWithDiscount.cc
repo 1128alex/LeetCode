@@ -5,7 +5,6 @@
 // For example, if there are 4 candies with costs 1, 2, 3, and 4, and the customer buys candies with costs 2 and 3, they can take the candy with cost 1 for free, but not the candy with cost 4.
 // Given a 0-indexed integer array cost, where cost[i] denotes the cost of the ith candy, return the minimum cost of buying all the candies.
 
-
 // Example 1:
 
 // Input: cost = [1,2,3]
@@ -33,13 +32,17 @@
 // Explanation: Since there are only 2 candies, we buy both of them. There is not a third candy we can take for free.
 // Hence, the minimum cost to buy all candies is 5 + 5 = 10.
 
-class Solution {
+class Solution
+{
 public:
-    int minimumCost(vector<int>& cost) {
+    int minimumCost(vector<int> &cost)
+    {
         int n = cost.size(), total = 0;
-        sort(cost.begin() , cost.end() , greater<int>());
-        for(int i = 0; i < n; ++i){
-            if(i % 3 != 2) total += cost[i];
+        sort(cost.begin(), cost.end(), greater<int>());
+        for (int i = 0; i < n; ++i)
+        {
+            if (i % 3 != 2)
+                total += cost[i];
         }
         return total;
     }
