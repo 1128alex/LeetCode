@@ -35,38 +35,22 @@
 
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
-    bool isValid(string s)
-    {
+    bool isValid(string s) {
         stack<char> stk;
-        for (char character : s)
-        {
-            if (character == '{' || character == '(' || character == '[')
-            {
-                stk.push(character);
-            }
-            else
-            {
-                if (stk.empty())
-                    return false;
-                if (!stk.empty())
-                {
-                    if (character == '}' && stk.top() == '{')
-                        stk.pop();
-                    else if (character == ')' && stk.top() == '(')
-                        stk.pop();
-                    else if (character == ']' && stk.top() == '[')
-                        stk.pop();
-                    else
-                        return false;
-                }
+
+        for (int i = 0; i < s.size(); i++){
+            if (stk.empty() && (s[i] == ')' || s[i] == '}' || s[i] == ']')) {
+                return false;
+            } else if (s[i] == '(' || s[i] == '{' || s[i] == '[') {
+                stk.push(s[i]);
+            } else if ((stk.top() == '(' && s[i] == ')') || (stk.top() == '{' && s[i] == '}') || (stk.top() == '[' && s[i] == ']')) {
+                stk.pop();
+            } else {
+                return false;
             }
         }
-        if (stk.empty())
-            return true;
-        else
-            return false;
+        return stk.empty();
     }
 };
