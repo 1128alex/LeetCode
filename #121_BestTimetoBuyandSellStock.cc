@@ -23,15 +23,13 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int min = prices[0];
-        int max= prices[0];
+        int max = prices[0];
         int result = 0;
         for (int price: prices) {
             if (price < min) {
                 min = price;
-                max = price;
-            } else {
-                max = price;
             }
+            max = price;
             if (max - min > result) {
                 result = max - min;
             } 
