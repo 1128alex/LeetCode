@@ -22,24 +22,16 @@ public:
     int search(vector<int>& nums, int target) {
         int low = 0;
         int high = nums.size() - 1;
-        while (true) {
+        while (low <= high) {
             int idx = (low + high) / 2;
             if (nums.at(idx) == target) {
                 return idx;
             } else if (nums.at(idx) < target) {
-                low = idx;
+                low = idx + 1;
             } else if (nums.at(idx) > target) {
-                high = idx;
-            }
-            if ((low == high + 1) || (low == high) || low == high - 1) {
-                if (nums.at(low) == target) {
-                    return low;
-                } else  if (nums.at(high) == target) {
-                    return high;
-                } else {
-                    return -1;
-                }                
+                high = idx - 1;
             }
         }
+        return -1;
     }
 };
