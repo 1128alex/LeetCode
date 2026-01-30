@@ -32,45 +32,37 @@
 
 // Follow-up: Can you implement the queue such that each operation is amortized O(1) time complexity? In other words, performing n operations will take overall O(n) time even if one of those operations may take longer.
 
-class MyQueue
-{
+class MyQueue {
 private:
     stack<int> input;
     stack<int> output;
-
 public:
-    MyQueue()
-    {
+    MyQueue() {
+        
     }
-
-    void push(int x)
-    {
+    
+    void push(int x) {
         input.push(x);
     }
-
-    int pop()
-    {
+    
+    int pop() {
         peek();
-        int val = output.top();
+        int result = output.top();
         output.pop();
-        return val;
+        return result;
     }
-
-    int peek()
-    {
-        if (output.empty())
-        {
-            while (!input.empty())
-            {
+    
+    int peek() {
+        if (output.empty()) {
+            while (!input.empty()) {
                 output.push(input.top());
                 input.pop();
             }
         }
         return output.top();
     }
-
-    bool empty()
-    {
+    
+    bool empty() {
         return input.empty() && output.empty();
     }
 };
